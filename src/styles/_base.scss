@@ -1,0 +1,102 @@
+@use 'variables' as *;
+
+// ====================================================================
+// Document Reset & Base Elements
+// ====================================================================
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  background-color: $color-bg-canvas;
+  color: $color-text-dark;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Typography Classes
+.font-serif-heading {
+  font-family: $font-serif;
+}
+
+.font-sans-body {
+  font-family: $font-sans;
+}
+
+.font-urdu {
+  font-family: $font-urdu;
+}
+
+// Global Browser Scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+
+  &-track {
+    background: $color-bg-canvas;
+  }
+
+  &-thumb {
+    background: $color-border;
+    border-radius: 4px;
+
+    &:hover {
+      background: $color-muted-text;
+    }
+  }
+}
+
+// Keyframe Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+

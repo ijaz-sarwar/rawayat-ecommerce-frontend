@@ -1,0 +1,8 @@
+{
+  "name": "Remix Rawayat \u0026 Co. — The Art of Pakistani Living",
+  "description": "Curated Pakistani artisan marketplace connecting independent makers with discerning buyers. Handcrafted apparel, fine jewellery, interior lighting, wall art, and organic dry fruits.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,137 @@
+@use 'variables' as *;
+
+// ====================================================================
+// General Helper & Utility Classes
+// ====================================================================
+
+// Color Utilities
+.bg-canvas { background-color: $color-bg-canvas; }
+.bg-white { background-color: $color-white; }
+.bg-primary { background-color: $color-primary; }
+.bg-primary-hover { background-color: $color-primary-hover; }
+.bg-lavender { background-color: $color-primary-light; }
+.bg-dark { background-color: $color-card-dark; }
+
+.text-dark { color: $color-text-dark; }
+.text-muted { color: $color-muted-text; }
+.text-primary { color: $color-primary; }
+.text-gold { color: $color-accent-gold; }
+.text-white { color: $color-white; }
+.text-error { color: $color-error; }
+.text-success { color: $color-success; }
+
+.border-light { border-color: $color-border; }
+.border-subtle { border-color: $color-border-subtle; }
+.border-dark { border-color: $color-card-dark-border; }
+
+// Border Radii
+.rounded-sm { border-radius: $radius-sm; }
+.rounded-md { border-radius: $radius-md; }
+.rounded-lg { border-radius: $radius-lg; }
+.rounded-xl { border-radius: $radius-xl; }
+.rounded-2xl { border-radius: $radius-2xl; }
+.rounded-3xl { border-radius: 1.5rem; }
+.rounded-full { border-radius: $radius-pill; }
+
+// Aspect Ratios
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-4\/3 { aspect-ratio: 4 / 3; }
+.aspect-video { aspect-ratio: 16 / 9; }
+
+// Transitions & Transforms
+.transition { transition: all 0.2s ease; }
+.transition-all { transition: all 0.2s ease; }
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+.hover\:scale-103:hover { transform: scale(1.03); }
+.hover\:scale-104:hover { transform: scale(1.04); }
+.hover\:scale-105:hover { transform: scale(1.05); }
+
+// Text Alignment & Typography
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.uppercase { text-transform: uppercase; }
+.capitalize { text-transform: capitalize; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+// Positioning & Layout Extras
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.z-10 { z-index: 10; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+
+.overflow-hidden { overflow: hidden; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+.border { border-width: 1px; border-style: solid; border-color: $color-border; }
+.border-b { border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: $color-border; }
+.border-t { border-top-width: 1px; border-top-style: solid; border-top-color: $color-border; }
+.border-l { border-left-width: 1px; border-left-style: solid; border-left-color: $color-border; }
+.border-r { border-right-width: 1px; border-right-style: solid; border-right-color: $color-border; }
+.border-y { border-top-width: 1px; border-bottom-width: 1px; border-style: solid; border-color: $color-border; }
+
+// Support for legacy hex classnames so nothing breaks during transition
+.bg-\[\#FDFBF7\] { background-color: #FDFBF7; }
+.bg-\[\#F2EAF8\] { background-color: #F2EAF8; }
+.bg-\[\#6B36C8\] { background-color: #6B36C8; }
+.bg-\[\#5927AF\] { background-color: #5927AF; }
+.bg-\[\#1E1626\] { background-color: #1E1626; }
+.bg-\[\#FAF8F5\] { background-color: #FAF8F5; }
+
+.text-\[\#1E1626\] { color: #1E1626; }
+.text-\[\#7B6E83\] { color: #7B6E83; }
+.text-\[\#6B36C8\] { color: #6B36C8; }
+.text-\[\#B08029\] { color: #B08029; }
+.text-\[\#D8A748\] { color: #D8A748; }
+
+.border-\[\#E4DCE8\] { border-color: #E4DCE8; }
+.border-\[\#E8DEF0\] { border-color: #E8DEF0; }
+.border-\[\#2D2338\] { border-color: #2D2338; }
+
+.hover\:bg-\[\#5927AF\]:hover { background-color: #5927AF; }
+.hover\:bg-\[\#F2EAF8\]:hover { background-color: #F2EAF8; }
+.hover\:text-\[\#6B36C8\]:hover { color: #6B36C8; }
+.hover\:border-\[\#6B36C8\]:hover { border-color: #6B36C8; }
+

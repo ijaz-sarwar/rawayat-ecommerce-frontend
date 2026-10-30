@@ -1,0 +1,443 @@
+@use 'variables' as *;
+
+// ====================================================================
+// Header, Searchbar & Navigation Styling
+// ====================================================================
+
+// Top Announcement Bar
+.top-announcement-bar {
+  background-color: $color-primary-light;
+  color: $color-muted-text;
+  font-size: 0.75rem;
+  padding: 0.375rem 1rem;
+  text-align: center;
+  letter-spacing: 0.025em;
+  font-family: $font-sans;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid $color-border-subtle;
+
+  .announcement-highlight {
+    font-weight: 500;
+    color: $color-text-dark;
+  }
+
+  .announcement-dot {
+    opacity: 0.3;
+  }
+
+  .announcement-promo {
+    color: $color-primary;
+    font-weight: 500;
+    display: none;
+
+    @include screen-sm {
+      display: inline;
+    }
+  }
+
+  .lang-toggle-btn {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 11px;
+    background-color: $color-white;
+    color: $color-primary;
+    border: 1px solid $color-border;
+    padding: 0.125rem 0.5rem;
+    border-radius: $radius-pill;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #EFE5F6;
+    }
+  }
+}
+
+// Main Sticky Header
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+  transition: all 0.2s ease;
+
+  .header-main-row {
+    // max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.875rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @include screen-sm {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    @include screen-lg {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  // Brand Logo
+  .brand-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .mobile-menu-trigger {
+      display: inline-flex;
+      padding: 0.375rem;
+      color: $color-text-dark;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      @include screen-md {
+        display: none;
+      }
+    }
+
+    .brand-logo-btn {
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+
+      .brand-title {
+        font-family: $font-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        color: $color-text-dark;
+        transition: color 0.2s ease;
+
+        @include screen-sm {
+          font-size: 1.875rem;
+        }
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        .ampersand {
+          color: $color-accent-gold;
+          font-weight: 400;
+          margin: 0 0.125rem;
+        }
+      }
+
+      .brand-subtitle {
+        font-size: 10px;
+        font-family: $font-sans;
+        text-transform: uppercase;
+        letter-spacing: 0.26em;
+        color: $color-muted-text;
+        font-weight: 600;
+        margin-top: -2px;
+
+        @include screen-sm {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  // Searchbar Container
+  .header-search-container {
+    display: none;
+    flex: 1;
+    max-width: 48rem; // max-w-3xl for expanded comfortable view
+    margin: 0 1.5rem;
+
+    @include screen-md {
+      display: flex;
+    }
+
+    .search-form {
+      width: 100%;
+      position: relative;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .search-input {
+        width: 100%;
+        padding: 0.5rem 3.5rem 0.5rem 2.25rem;
+        font-size: 0.875rem;
+        background-color: $color-white;
+        border: 1px solid $color-border;
+        border-radius: $radius-pill;
+        color: $color-text-dark;
+        transition: all 0.2s ease;
+        box-shadow: $shadow-sm;
+
+        &::placeholder {
+          color: $color-muted-text;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $color-primary;
+          box-shadow: 0 0 0 1px $color-primary;
+        }
+      }
+
+      .search-icon {
+        width: 1rem;
+        height: 1rem;
+        color: $color-muted-text;
+        position: absolute;
+        left: 0.75rem;
+        pointer-events: none;
+      }
+
+      .search-submit-btn {
+        position: absolute;
+        right: 0.25rem;
+        padding: 0.25rem 0.875rem;
+        background-color: $color-primary;
+        color: $color-white;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: none;
+        border-radius: $radius-pill;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: $color-primary-hover;
+        }
+      }
+    }
+
+    .search-error-msg {
+      position: absolute;
+      left: 0.75rem;
+      bottom: -1.25rem;
+      font-size: 11px;
+      color: $color-error;
+      font-weight: 500;
+    }
+  }
+
+  // Header Actions (Seller, Wishlist, Cart, Profile)
+  .header-actions-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+
+    @include screen-sm {
+      gap: 1rem;
+    }
+
+    .seller-cta-btn {
+      display: none;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.875rem;
+      border: 1px solid $color-border;
+      border-radius: $radius-pill;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.025em;
+      color: $color-primary;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      @include screen-lg {
+        display: flex;
+      }
+
+      &:hover {
+        border-color: $color-primary;
+        background-color: $color-primary-light;
+      }
+    }
+
+    .action-icon-btn {
+      position: relative;
+      padding: 0.5rem;
+      color: $color-muted-text;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      .badge-counter {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: $radius-pill;
+        background-color: $color-primary;
+        color: $color-white;
+        font-size: 10px;
+        font-weight: 700;
+        @include flex-center;
+      }
+    }
+
+    .user-profile-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem;
+      border-radius: $radius-pill;
+      background: none;
+      border: none;
+      color: $color-text-dark;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      @include screen-sm {
+        padding: 0.375rem 0.75rem;
+      }
+
+      &:hover {
+        background-color: $color-primary-light;
+      }
+
+      .user-avatar-circle {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: $radius-pill;
+        background-color: $color-primary-light;
+        color: $color-primary;
+        border: 1px solid $color-border;
+        @include flex-center;
+      }
+
+      .user-display-name {
+        display: none;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: $color-muted-text;
+
+        @include screen-xl {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  // Mobile Search Row
+  .mobile-search-row {
+    padding: 0 1rem 0.75rem;
+
+    @include screen-md {
+      display: none;
+    }
+  }
+
+  // Category Navigation Bar
+  .category-nav-bar {
+    border-top: 1px solid $color-border-subtle;
+    background-color: rgba(253, 251, 247, 0.98);
+
+    .category-nav-inner {
+      // max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.625rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.025em;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      @include screen-md {
+        justify-content: center;
+        gap: 2rem;
+        font-size: 13px;
+      }
+
+      .category-nav-link {
+        background: none;
+        border: none;
+        padding: 0;
+        color: $color-muted-text;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        display: flex;
+        align-items: baseline;
+        gap: 0.375rem;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        .urdu-subtext {
+          font-family: $font-urdu;
+          font-size: 10px;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  // Mobile Nav Drawer
+  .mobile-nav-drawer {
+    background-color: $color-white;
+    border-bottom: 1px solid $color-border;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease-out;
+
+    @include screen-md {
+      display: none;
+    }
+
+    .mobile-category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .mobile-category-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid $color-border-divider;
+        background: none;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        text-align: left;
+        cursor: pointer;
+        color: $color-text-dark;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+

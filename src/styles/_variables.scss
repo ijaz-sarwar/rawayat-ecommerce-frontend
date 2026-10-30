@@ -1,0 +1,73 @@
+// ====================================================================
+// Rawayat & Co. — SCSS Design Variables & Tokens
+// ====================================================================
+
+// Brand Color Palette
+$color-primary: #6B36C8;            // Imperial Royal Purple
+$color-primary-hover: #5927AF;      // Darker Purple for Hover
+$color-primary-light: #F2EAF8;      // Soft Lavender / Lilac Tint
+$color-bg-canvas: #FDFBF7;          // Warm Ivory Body Background
+$color-text-dark: #1E1626;          // Deep Obsidian / Plum Black
+$color-muted-text: #7B6E83;         // Muted Slate Lavender
+$color-border: #E4DCE8;             // Light Border
+$color-border-subtle: #E8DEF0;      // Very Soft Divider
+$color-border-divider: #F0EAF2;     // Crisp Divider Line
+$color-accent-gold: #B08029;        // Mughal Gold Accent
+$color-badge-gold: #D8A748;         // Warm Gold for Badges
+$color-card-dark: #1E1626;          // Dark Night Background
+$color-card-dark-border: #2D2338;   // Dark Card Border
+$color-white: #ffffff;
+$color-error: #dc2626;
+$color-success: #16a34a;
+
+// Typography
+$font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-serif: 'Cormorant Garamond', Georgia, serif;
+$font-urdu: 'Noto Nastaliq Urdu', serif;
+
+// Responsive Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Shadows & Radii
+$radius-sm: 0.375rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+$radius-2xl: 1.5rem;
+$radius-pill: 9999px;
+
+$shadow-sm: 0 1px 2px 0 rgba(30, 22, 38, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(30, 22, 38, 0.1), 0 2px 4px -2px rgba(30, 22, 38, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(30, 22, 38, 0.1), 0 4px 6px -4px rgba(30, 22, 38, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(30, 22, 38, 0.15), 0 8px 10px -6px rgba(30, 22, 38, 0.15);
+
+// SCSS Mixins
+@mixin screen-sm {
+  @media (min-width: #{$breakpoint-sm}) { @content; }
+}
+@mixin screen-md {
+  @media (min-width: #{$breakpoint-md}) { @content; }
+}
+@mixin screen-lg {
+  @media (min-width: #{$breakpoint-lg}) { @content; }
+}
+@mixin screen-xl {
+  @media (min-width: #{$breakpoint-xl}) { @content; }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
